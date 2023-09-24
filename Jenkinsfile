@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+    string(name: 'APP_IP', defaultValue: '10.100.4.216')
     stages {
         stage('Build') {
             steps{
