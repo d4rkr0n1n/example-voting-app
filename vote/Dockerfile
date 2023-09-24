@@ -17,6 +17,9 @@ RUN pip install -r requirements.txt
 # Copy our code from the current folder to /app inside the container
 COPY . .
 
+# Add /app prefix to route
+RUN sed -i "/^@app.route.*/i @app.route(\"/app\", methods=['POST','GET'])" /app/app.py
+
 # Make port 80 available for links and/or publish
 EXPOSE 80
 
